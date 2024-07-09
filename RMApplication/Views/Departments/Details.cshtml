@@ -1,0 +1,35 @@
+﻿@model DepartmentDetailsViewModel
+
+<h1>Department Details</h1>
+
+<div>
+    <h4>Department:</h4>
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Department.Name)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Department.Name)
+        </dd>
+    </dl>
+</div>
+
+<div>
+    <h4>Parent Departments:</h4>
+    <ul>
+        @foreach (var parent in Model.ParentDepartments)
+        {
+            <li>@parent.Name</li>
+        }
+    </ul>
+</div>
+
+<div>
+    <h4>Sub-Departments:</h4>
+    <ul>
+        @foreach (var subDept in Model.Department.SubDepartments)
+        {
+            <li>@subDept.Name</li>
+        }
+    </ul>
+</div>
